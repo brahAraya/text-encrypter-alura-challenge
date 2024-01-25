@@ -1,0 +1,265 @@
+:root {
+  --white: rgb(255, 255, 255);
+  --light-blue: rgb(243, 245, 252);
+  --dark-blue: rgb(10, 56, 113);
+  --secondary-blue: rgb(216, 223, 232);
+  --shadow-color: rgb(0, 0, 0, 0.08);
+  --gray: rgb(73, 80, 87);
+  --dark-gray: rgb(52, 58, 64);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--light-blue);
+  height: 100dvh;
+  font-family: 'Inter', sans-serif;
+}
+
+.logo {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  height: 48px;
+  width: 120px;
+}
+
+.container {
+  height: 100%;
+  padding: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+
+.encrypt-form,
+.encrypt-result {
+  height: 100%;
+  padding: 32px;
+}
+
+.encrypt-form {
+  flex-grow: 2;
+  display: flex;
+  justify-content: center;
+  padding-top: 128px;
+}
+
+.encrypt-form form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.encrypt-input {
+  resize: none;
+  border: none;
+  outline: none;
+  height: 100%;
+  background-color: var(--light-blue);
+  font-family: 'Inter', sans-serif;
+  color: var(--dark-blue);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 48px;
+}
+
+.encrypt-input::placeholder {
+  color: var(--dark-blue);
+}
+
+.info {
+  color: var(--gray);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.info img {
+  height: 16px;
+  width: 16px;
+}
+
+.info span {
+  font-size: 12px;
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.encrypt-btn,
+.decrypt-btn,
+.copy-btn {
+  cursor: pointer;
+  padding: 24px;
+  border: 1px solid var(--dark-blue);
+  border-radius: 24px;
+  height: 67px;
+  width: 328px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  transition: all .3s ease;
+}
+
+.encrypt-btn {
+  background-color: var(--dark-blue);
+  color: var(--white);
+}
+
+.decrypt-btn,
+.copy-btn {
+  background-color: var(--secondary-blue);
+  color: var(--dark-blue);
+}
+
+.copy-btn {
+  width: 100%;
+}
+
+.encrypt-btn:hover,
+.encrypt-btn:active,
+.decrypt-btn:hover,
+.decrypt-btn:active,
+.copy-btn:hover,
+.copy-btn:active {
+  transform: scale(1.05);
+}
+
+.copy-btn:hover,
+.copy-btn:active {
+  background-color: var(--dark-blue);
+  color: var(--white);
+}
+
+.encrypt-result {
+  width: 400px;
+  background-color: var(--white);
+  border-radius: 32px;
+  box-shadow: 0 24px 32px var(--shadow-color);
+}
+
+.encrypt-result h2 {
+  color: --dark-gray;
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 38px;
+  text-align: center;
+}
+
+.encrypt-result p {
+  color: var(--gray);
+  font-size: 1em;
+  line-height: 24px;
+  hyphens: auto;
+  max-height: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.not-found-card,
+.result-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.not-found-card {
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.not-found-card img {
+  width: 336px;
+  height: 304px;
+  margin-bottom: 1em;
+}
+
+.not-found-card p {
+  text-align: center;
+}
+
+.result-card {
+  justify-content: space-between;
+}
+
+.result-card p {
+  font-size: 2em;
+  font-weight: 400;
+  line-height: 36px;
+}
+
+.hidden {
+  display: none;
+}
+
+
+/* === RESPONSIVE === */
+
+/* tablets */
+@media (max-width: 1024px) {
+  body {
+    height: auto;
+    width: 100%;
+  }
+
+  .logo {
+    left: 0px;
+  }
+
+  .container {
+    flex-direction: column;
+    gap: 64px;
+  }
+
+  .encrypt-form {
+    padding: 128px 0 0 0;
+  }
+
+  .encrypt-form form {
+    width: 100%;
+  }
+
+  .encrypt-input {
+    height: 60dvh;
+    width: auto;
+  }
+
+  .encrypt-btn,
+  .decrypt-btn {
+    width: 50%;
+  }
+
+  .encrypt-result {
+    width: 100%;
+  }
+
+  .not-found-card img {
+    display: none;
+  }
+
+  .result-card {
+    gap: 48px;
+  }
+}
+
+/* small phones  */
+@media (max-width: 375px) {
+  .buttons {
+    flex-direction: column;
+  }
+
+  .encrypt-btn,
+  .decrypt-btn {
+    width: 100%;
+  }
+}
