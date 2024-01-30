@@ -5,6 +5,7 @@
   --secondary-blue: rgb(216, 223, 232);
   --shadow-color: rgb(0, 0, 0, 0.08);
   --gray: rgb(73, 80, 87);
+  --light-gray: rgb(107, 113, 119);
   --dark-gray: rgb(52, 58, 64);
 }
 
@@ -58,6 +59,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: start;
   gap: 18px;
 }
 
@@ -78,6 +80,19 @@ body {
   color: var(--dark-blue);
 }
 
+.paste-link {
+  font-size: 24px;
+  text-decoration: none;
+  color: var(--dark-gray);
+  margin-bottom: 1em;
+}
+
+.paste-link:hover,
+.paste-link:hover {
+  text-decoration: underline;
+  color: var(--dark-blue);
+}
+
 .info {
   color: var(--gray);
   display: flex;
@@ -95,6 +110,7 @@ body {
 }
 
 .buttons {
+  width: 100%;
   display: flex;
   gap: 16px;
 }

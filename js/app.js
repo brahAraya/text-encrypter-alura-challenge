@@ -1,3 +1,4 @@
+const input = document.getElementById('text');
 const resultField = document.getElementById('result-text');
 const cardHide = { 'not-found': 'result', 'result': 'not-found' };
 const encryptionKeys = {
@@ -9,13 +10,13 @@ const encryptionKeys = {
 };
 
 function makeOperation(operation) {
-  const input = document.getElementById('text');
-  if (input.value.trim() === '') {
+  if (input.value.trim().replace(/(\r\n|\n|\r)/gm, '') === '') {
     showCard('not-found');
     input.value = '';
+  } else {
+    showCard('result');
+    resultField.textContent = operation(input.value);
   }
-  showCard('result');
-  resultField.textContent = operation(input.value);
 }
 
 function encryptText(text) {
@@ -36,4 +37,8 @@ function showCard(card) {
 
 async function copyResult() {
   await navigator.clipboard.writeText(resultField.innerHTML);
+}
+
+async function pasteText() {
+  input.value = await navigator.clipboard.readText();
 }
