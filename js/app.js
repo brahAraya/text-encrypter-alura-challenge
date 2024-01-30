@@ -30,7 +30,6 @@ function decryptText(text) {
 }
 
 function showCard(card) {
-  console.log(card, cardHide[card]);
   document.getElementById(card).classList.remove('hidden');
   document.getElementById(cardHide[card]).classList.add('hidden');
 }
