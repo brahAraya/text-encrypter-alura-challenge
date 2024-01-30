@@ -1,6 +1,5 @@
-const resultField = document.getElementById('result');
-const notFoundCard = document.getElementById('not-found-card');
-const resultCard = document.getElementById('result-card');
+const resultField = document.getElementById('result-text');
+const cardHide = { 'not-found': 'result', 'result': 'not-found' };
 const encryptionKeys = {
   a: 'ai',
   e: 'enter',
@@ -9,31 +8,31 @@ const encryptionKeys = {
   u: 'ufat',
 };
 
-function encryptText() {
-  const text = document.getElementById('text').value;
-  text === '' ? showNotFoundCard() : showResultCard();
-  const regex = new RegExp(`[${Object.keys(encryptionKeys).join('')}]`, 'g');
-  const encryptedText = text.replace(regex, (key) => encryptionKeys[key]);
-  resultField.textContent = encryptedText;
-}
-
-function decryptText() {
-  let text = document.getElementById('text').value;
-  text === '' ? showNotFoundCard() : showResultCard();
-  for (const [key, value] of Object.entries(encryptionKeys)) {
-    text = text.replaceAll(value, key);
+function makeOperation(operation) {
+  const input = document.getElementById('text');
+  if (input.value.trim() === '') {
+    showCard('not-found');
+    input.value = '';
   }
-  resultField.textContent = text;
+  showCard('result');
+  resultField.textContent = operation(input.value);
 }
 
-function showNotFoundCard() {
-  notFoundCard.classList.remove('hidden');
-  resultCard.classList.add('hidden');
+function encryptText(text) {
+  const regex = new RegExp(`[${Object.keys(encryptionKeys).join('')}]`, 'g');
+  return text.replace(regex, (key) => encryptionKeys[key]);
 }
 
-function showResultCard() {
-  resultCard.classList.remove('hidden');
-  notFoundCard.classList.add('hidden');
+function decryptText(text) {
+  return Object.entries(encryptionKeys).reduce((accumulator, [key, value]) => {
+    return accumulator.replaceAll(value, key);
+  }, text);
+}
+
+function showCard(card) {
+  console.log(card, cardHide[card]);
+  document.getElementById(card).classList.remove('hidden');
+  document.getElementById(cardHide[card]).classList.add('hidden');
 }
 
 async function copyResult() {

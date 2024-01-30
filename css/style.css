@@ -14,6 +14,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--light-blue);
   height: 100dvh;
@@ -93,6 +97,10 @@ body {
 .buttons {
   display: flex;
   gap: 16px;
+}
+
+.buttons a {
+  width: 100%;
 }
 
 .encrypt-btn,
@@ -234,9 +242,13 @@ body {
     width: auto;
   }
 
+  .buttons a {
+    width: 50%;
+  }
+
   .encrypt-btn,
   .decrypt-btn {
-    width: 50%;
+    width: 100%;
   }
 
   .encrypt-result {

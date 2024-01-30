@@ -26,19 +26,23 @@
           <span>Solo letras minúsculas y sin acento.</span>
         </small>
         <div class="buttons">
-          <input type="button" id="encrypt" class="encrypt-btn" onclick="encryptText()" value="Encriptar" />
-          <input type="button" id="decrypt" class="decrypt-btn" onclick="decryptText()" value="Desencriptar" />
+          <a href="#encrypt-result">
+            <input type="button" id="encrypt" class="encrypt-btn" onclick="makeOperation(encryptText)" value="Encriptar" />
+          </a>
+          <a href="#encrypt-result">
+            <input type="button" id="decrypt" class="decrypt-btn" onclick="makeOperation(decryptText)" value="Desencriptar" />
+          </a>
         </div>
       </form>
     </section>
-    <aside class="encrypt-result">
-      <div id="not-found-card" class="not-found-card">
+    <aside class="encrypt-result" id="encrypt-result">
+      <div id="not-found" class="not-found-card">
         <img src="assets/not-found.svg" alt="Mujer con lupa viendo una gema" title="Ningún mensaje encontrado" />
         <h2>Ningún mensaje encontrado</h2>
         <p>Ingresa el texto que desees encriptar o desencriptar.</p>
       </div>
-      <div id="result-card" class="result-card hidden">
-        <p id="result"></p>
+      <div id="result" class="result-card hidden">
+        <p id="result-text"></p>
         <button id="copy" class="copy-btn" onclick="copyResult()">Copiar</button>
       </div>
     </aside>
