@@ -83,7 +83,7 @@ body {
   font-size: 24px;
   text-decoration: none;
   color: var(--dark-gray);
-  margin-bottom: 1em;
+  margin-bottom: 8px;
 }
 
 .paste-link:hover,
@@ -254,7 +254,6 @@ body {
 
   .encrypt-input {
     height: 60dvh;
-    width: auto;
   }
 
   .buttons a {
@@ -285,6 +284,12 @@ body {
     flex-direction: column;
   }
 
+  .encrypt-input {
+    height: 45dvh;
+    width: 100%;
+  }
+
+  .buttons a,
   .encrypt-btn,
   .decrypt-btn {
     width: 100%;
