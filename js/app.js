@@ -10,12 +10,13 @@ const encryptionKeys = {
 };
 
 function makeOperation(operation) {
-  if (input.value.trim().replace(/(\r\n|\n|\r)/gm, '') === '') {
+  const parsedInput = input.value.trim().replace(/(\r\n|\n|\r)/gm, '');
+  if (parsedInput === '') {
     showCard('not-found');
     input.value = '';
   } else {
     showCard('result');
-    resultField.textContent = operation(input.value);
+    resultField.textContent = operation(parsedInput);
   }
 }
 

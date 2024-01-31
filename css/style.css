@@ -253,7 +253,8 @@ body {
   }
 
   .encrypt-input {
-    height: 60dvh;
+    height: 45dvh;
+    width: 100%;
   }
 
   .buttons a {
@@ -282,11 +283,6 @@ body {
 @media (max-width: 375px) {
   .buttons {
     flex-direction: column;
-  }
-
-  .encrypt-input {
-    height: 45dvh;
-    width: 100%;
   }
 
   .buttons a,
